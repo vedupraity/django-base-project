@@ -2,6 +2,7 @@ import os
 from logging import config as logging_config
 
 import dj_database_url
+from corsheaders.defaults import default_headers, default_methods
 from decouple import config
 
 from .base import BaseSetting
@@ -67,6 +68,25 @@ class DevelopmentSetting(BaseSetting):
         },
     })
 
+    CORS_ORIGIN_ALLOW_ALL = True
+    CORS_ALLOW_CREDENTIALS = True
+
+    CORS_ALLOW_METHODS = list(default_methods) + [
+        # extend with your custom methods here
+    ]
+
+    CORS_ALLOW_HEADERS = list(default_headers) + [
+        # extend with your custom headers here
+    ]
+
+    CORS_ORIGIN_WHITELIST = (
+        'http://localhost:8000',
+    )
+
+    CSRF_TRUSTED_ORIGINS = (
+        'http://localhost:8000',
+    )
+
 
 class ProductionSetting(BaseSetting):
     DEBUG = False
@@ -127,3 +147,22 @@ class ProductionSetting(BaseSetting):
             },
         },
     })
+
+    CORS_ORIGIN_ALLOW_ALL = False
+    CORS_ALLOW_CREDENTIALS = True
+
+    CORS_ALLOW_METHODS = list(default_methods) + [
+        # extend with your custom methods here
+    ]
+
+    CORS_ALLOW_HEADERS = list(default_headers) + [
+        # extend with your custom headers here
+    ]
+
+    CORS_ORIGIN_WHITELIST = (
+        'http://localhost:8000',
+    )
+
+    CSRF_TRUSTED_ORIGINS = (
+        'http://localhost:8000',
+    )
