@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import TodoTask
+
+
+class TodoTaskModelAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'owner', 'created', 'due_by')
+
+
+admin.site.register(TodoTask, TodoTaskModelAdmin)
