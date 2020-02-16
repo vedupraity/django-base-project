@@ -1,0 +1,4 @@
+{% block content %}
+    <h2>Welcome {{ request.user.username }}</h2>
+    <a href="{% url 'site-logout-view' %}">Logout</a>
+{% endblock %}

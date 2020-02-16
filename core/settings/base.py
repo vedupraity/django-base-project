@@ -18,6 +18,7 @@ class BaseSetting(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+        'my_site.apps.MySiteConfig',
     ]
 
     MIDDLEWARE = [
