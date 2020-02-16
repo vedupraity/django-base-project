@@ -50,7 +50,7 @@ python manage.py migrate
 Collect all static files from each application
 
 ```sh
-python manage.py collectstatic
+python manage.py collectstatic --no-input
 ```
 
 Create superuser who can login to the admin site
